@@ -6,9 +6,10 @@ import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slide
 interface LandingPageProps {
   onStart: (apiKey: string) => void;
   initialApiKey?: string;
+  onNavigate?: (view: string) => void;
 }
 
-export const LandingPage: React.FC<LandingPageProps> = ({ onStart, initialApiKey = '' }) => {
+export const LandingPage: React.FC<LandingPageProps> = ({ onStart, initialApiKey = '', onNavigate }) => {
   const [apiKey, setApiKey] = useState(initialApiKey);
   const [isValidating, setIsValidating] = useState(false);
   const [error, setError] = useState('');
@@ -305,9 +306,23 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onStart, initialApiKey
 
       {/* Footer */}
       <footer className="py-12 border-t border-slate-800 bg-slate-950 text-center">
-        <p className="text-slate-500 text-sm">
+        <p className="text-slate-500 text-sm mb-4">
           Cette application vous est offerte avec ❤️ par <a href="https://www.acadee.fr" target="_blank" rel="noopener noreferrer" className="text-cyan-500 hover:underline">ACADEE</a>
         </p>
+        <div className="flex items-center justify-center gap-6 text-sm">
+          <button 
+            onClick={() => onNavigate?.('mentions')}
+            className="text-slate-600 hover:text-cyan-500 transition-colors"
+          >
+            Mentions légales
+          </button>
+          <button 
+            onClick={() => onNavigate?.('privacy')}
+            className="text-slate-600 hover:text-cyan-500 transition-colors"
+          >
+            Politique de confidentialité
+          </button>
+        </div>
       </footer>
     </div>
   );

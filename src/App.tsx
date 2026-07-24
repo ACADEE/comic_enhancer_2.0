@@ -9,9 +9,11 @@ import { saveAs } from 'file-saver';
 import { UploadedFile } from './types';
 import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slider';
 import { LandingPage } from './LandingPage';
+import { MentionsLegales } from './MentionsLegales';
+import { PolitiqueConfidentialite } from './PolitiqueConfidentialite';
 
 export default function App() {
-  const [isStarted, setIsStarted] = useState(false);
+  const [currentView, setCurrentView] = useState<'home' | 'app' | 'mentions' | 'privacy'>('home');
   const { 
     files, 
     addFiles, 
@@ -231,16 +233,25 @@ export default function App() {
     }
   };
 
-  if (!isStarted) {
+  if (currentView === 'home') {
     return (
       <LandingPage 
         initialApiKey={customApiKey}
         onStart={(apiKey) => {
           setCustomApiKey(apiKey);
-          setIsStarted(true);
+          setCurrentView('app');
         }} 
+        onNavigate={setCurrentView}
       />
     );
+  }
+
+  if (currentView === 'mentions') {
+    return <MentionsLegales onBack={() => setCurrentView('home')} />;
+  }
+
+  if (currentView === 'privacy') {
+    return <PolitiqueConfidentialite onBack={() => setCurrentView('home')} />;
   }
 
   return (
