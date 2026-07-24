@@ -1,0 +1,6 @@
+{
+  "name": "BD Enhancer",
+  "description": "Améliore la lisibilité des planches de bandes dessinées via l'API Kie.ai.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
