@@ -24,3 +24,30 @@ Outil idéal pour tous ceux qui veulent traiter des images par lot grâce à l'I
    ```bash
    git clone <url-du-repo>
    cd <nom-du-dossier>
+   ```
+2. Installez les dépendances :
+   ```bash
+   npm install
+   ```
+3. Créez un fichier `.env` à la racine en vous basant sur `.env.example` et ajoutez votre clé API Kie.ai.
+4. Lancez le serveur de développement :
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## Clé API Kie.ai 🔑
+
+Cette application utilise l'API de Kie.ai pour le traitement des images.  
+Obtenez votre clé API ici : [Créer sa clé d'API sur Kie.ai](https://kie.ai?ref=3b936d7970ee7afd4833f087a6c6b2bb)
+
+Vous pouvez configurer cette clé de deux manières :
+1. Dans le fichier `.env` via la variable `KIE_API_KEY` (recommandé pour l'installation locale).
+2. Directement depuis l'interface utilisateur de l'application (locale ou web) via le bouton "Clé API".
+
+---
+
+> 💡 **Astuce** : La version web ([imagebatch-ai.acadee.fr](https://imagebatch-ai.acadee.fr)) est idéale pour un usage rapide et sans configuration, tandis que l'installation locale est recommandée pour un usage intensif, des besoins de confidentialité ou des personnalisations avancées.
+```
+
